@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: rgba(255, 213, 0, 0.685);
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: #3B4049;
+  background-image: url(background.svg);
+  background-repeat: repeat-y;
+  background-size: 100vw;
+  background-blend-mode: soft-light;
+  overflow-y: hidden;
+}
+
+
+.wrapper {
+  height: 200px;
+  width: 300px;
+  background-color: #3760C9;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  animation-name: up;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes up {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.one-2,
+.two-2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: transform 0.25s linear;
+}
+
+/* Lid when closed */
+.one-2 {
+  border-top: 100px solid #658ced;
+  transform: rotateX(0deg);
+  z-index: 3;
+  transition-delay: 0.75s;
+}
+
+/* Lid when opened */
+.two-2 {
+  border-top: 100px solid #3760C9;
+  transform: rotateX(90deg);
+  z-index: 1;
+  transition-delay: 0.5s;
+}
+
+.envelope {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 100px solid transparent;
+  border-right: 150px solid #C4DFF0;
+  border-bottom: 100px solid #C4DFF0;
+  border-left: 150px solid #a4d4f2;
+  z-index: 3;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 15px;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.letter p {
+  text-align: left;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: #3B4049;
+}
+
+.active-1 {
+  transform: rotateX(90deg);
+  transition-delay: 0s;
+}
+
+.active-2 {
+  transform: rotateX(180deg);
+  transition-delay: 0.25s;
+}
+
+.active-letter {
+  transform: translateY(-50px);
+  transition-delay: 0.5s;
+}
+
+
+/*********btn*************/
+.bnt-group {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  display: block;
+  margin-top: 40px;
+  width: 100px;
+  height: 50px;
+  padding: 10px 20px;
+  background: rgb(213, 101, 208);
+  border-radius: 5px;
+  margin-bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1000;
+  font-style: italic;
+  font-weight: 700;
+  box-shadow: -17px 17px 12px -7px rgba(0, 0, 0, 0.1);
+}
+
+.run {
+  transition-delay: 0.3s;
+  transform: translateY(1000px);
+  transition-duration: 2s;
+}
+
+span{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: large;
+  text-align: justify;
+}
+
+
+
+.hearts {
+  position: absolute
+}
+
+.one-1,
+.two-1,
+.three-1,
+.four-1,
+.five-1 {
+  background-color: red;
+  display: inline-block;
+  height: 10px;
+  margin: 0 10px;
+  position: relative;
+  transform: rotate(-45deg);
+  width: 10px;
+  top: 50px;
+}
+
+.one-1:before,
+.one-1:after,
+.two-1:before,
+.two-1:after,
+.three-1:before,
+.three-1:after,
+.four-1:before,
+.four-1:after,
+.five-1:before,
+.five-1:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.one-1:before,
+.two-1:before,
+.three-1:before,
+.four-1:before,
+.five-1:before {
+  top: -5px;
+  left: 0;
+}
+
+.one-1:after,
+.two-1:after,
+.three-1:after,
+.four-1:after,
+.five-1:after {
+  left: 5px;
+  top: 0;
+}
+
+.one-1 {
+  left: 10px;
+  animation: heart 1s ease-out infinite;
+}
+
+.two-1 {
+  left: 30px;
+  animation: heart 2s ease-out infinite;
+}
+
+.three-1 {
+  left: 50px;
+  animation: heart 1.5s ease-out infinite;
+}
+
+.four-1 {
+  left: 70px;
+  animation: heart 2.3s ease-out infinite;
+}
+
+.five-1 {
+  left: 90px;
+  animation: heart 1.7s ease-out infinite;
+}
+
+@keyframes heart {
+  0% {
+    transform: translateY(0) rotate(-45deg) scale(0.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-150px) rotate(-45deg) scale(1.3);
+    opacity: 0.5;
+  }
+}
